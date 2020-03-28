@@ -1,6 +1,7 @@
 # military-system
 304 project
 
-304 tutorial: https://canvas.ubc.ca/courses/36002/files/6932386?module_item_id=1652400
+TECH STACK:  PHP + ORACLE
 
-PHP + XAMPP + mySql 
+304 PROJECT GOOGLE DOC
+https://docs.google.com/document/d/1BwqkS-vRStkFkuNYwIhhrR_K4GVaDk4eubcBIrjKxDA/edit
