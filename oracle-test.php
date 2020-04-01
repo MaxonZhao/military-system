@@ -182,6 +182,7 @@
             $old_name = $_POST['oldName'];
             $new_name = $_POST['newName'];
 
+            // 轻轻的，我来了:D 
             // you need the wrap the old name and new name values with single quotations
             executePlainSQL("UPDATE demoTable SET name='" . $new_name . "' WHERE name='" . $old_name . "'");
             OCICommit($db_conn);
