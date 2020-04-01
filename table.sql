@@ -1,21 +1,21 @@
 
-drop table Area cascade constraNUMBERs;                        -- DONE
-drop table Mission_takePlace_assign1 cascade constraNUMBERs;   -- DONE
-drop table Mission_takePlace_assign2 cascade constraNUMBERs;   -- DONE
-drop table Mission_takePlace_assign3 cascade constraNUMBERs;   -- DONE
-drop table General cascade constraNUMBERs;                     -- DONE
-drop table Combatant cascade constraNUMBERs;                   -- DONE
-drop table Commander cascade constraNUMBERs;                   -- DONE
-drop table Soldier_enrolls cascade constraNUMBERs;             -- DONE
-drop table MissionBudgetReport_record cascade constraNUMBERs;  -- DONE
-drop table MUBudgetReport_record cascade constraNUMBERs;       -- DONE
-drop table MUnit cascade constraNUMBERs;                       -- DONE
-drop table Vehicle_has1 cascade constraNUMBERs;                -- DONE
-drop table Vehicle_has2 cascade constraNUMBERs;                -- DONE
-drop table Vehicle_has3 cascade constraNUMBERs;                -- DONE 
-drop table Weapon_equip1 cascade constraNUMBERs;               -- DONE
-drop table Weapon_equip2 cascade constraNUMBERs;               -- JL
-drop table Weapon_equip3 cascade constraNUMBERs;               -- DONE
+drop table Area cascade constraints;                        -- DONE
+drop table Mission_takePlace_assign1 cascade constraints;   -- DONE
+drop table Mission_takePlace_assign2 cascade constraints;   -- DONE
+drop table Mission_takePlace_assign3 cascade constraints;   -- DONE
+drop table General cascade constraints;                     -- DONE
+drop table Combatant cascade constraints;                   -- DONE
+drop table Commander cascade constraints;                   -- DONE
+drop table Soldier_enrolls cascade constraints;             -- DONE
+drop table MissionBudgetReport_record cascade constraints;  -- DONE
+drop table MUBudgetReport_record cascade constraints;       -- DONE
+drop table MUnit cascade constraints;                       -- DONE
+drop table Vehicle_has1 cascade constraints;                -- DONE
+drop table Vehicle_has2 cascade constraints;                -- DONE
+drop table Vehicle_has3 cascade constraints;                -- DONE 
+drop table Weapon_equip1 cascade constraints;               -- DONE
+drop table Weapon_equip2 cascade constraints;               -- DONE
+drop table Weapon_equip3 cascade constraints;               -- DONE
 
 CREATE TABLE Area (
     AreaName VARCHAR2(50), 
@@ -29,14 +29,14 @@ CREATE TABLE Mission_takePlace_assign1(
     MissionID VARCHAR2(50) Primary Key, 
     Title VARCHAR2(50), 
     StartDate DATE,
-    Foreign Key(MissionID) References Mission_takePlace_assign3 ON DELETE CASCADE
+    Foreign Key(MissionID) References Mission_takePlace_assign3 (EndDate) ON DELETE CASCADE
 );
 
 
 CREATE TABLE Mission_takePlace_assign2(
     EndDate NUMBER Primary Key, 
-    Mission_status VARCHAR2(50)
-    Foreign Key(EndDate) References Mission_takePlace_assign3 ON DELETE CASCADE
+    Mission_status VARCHAR2(50),
+    Foreign Key(EndDate) References Mission_takePlace_assign3 (EndDate) ON DELETE CASCADE
 );
 
 
@@ -45,11 +45,11 @@ CREATE TABLE Mission_takePlace_assign3(
     LID NUMBER, 
     GID NUMBER, 
     MUID NUMBER, 
-    EndDate DATE
+    EndDate DATE,
     Primary Key(MissionID, LID, GID, MUID, EndDate), 
-    Foreign Key(LID) References Location ON DELETE CASCADE,
-    Foreign Key(GID) References General ON DELETE CASCADE,
-    Foreign Key(MUID) References MilitaryUnit ON DELETE CASCADE
+    Foreign Key(LID) References Area (LID) ON DELETE CASCADE,
+    Foreign Key(GID) References General (GID) ON DELETE CASCADE,
+    Foreign Key(MUID) References MilitaryUnit (MUID) ON DELETE CASCADE
 );
 
 CREATE TABLE General(
