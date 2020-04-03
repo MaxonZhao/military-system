@@ -138,7 +138,7 @@ CREATE TABLE Weapon_equip1(
 );
 
 CREATE TABLE Weapon_equip2(
-    WID VARCHAR2(50),
+    WID NUMBER,
     WeaponYear NUMBER,
     SoID NUMBER,
     Condition VARCHAR2(50),
@@ -147,7 +147,7 @@ CREATE TABLE Weapon_equip2(
 );
 
 CREATE TABLE Weapon_equip3 (
-    WID varchar2(50), 
+    WID NUMBER, 
     Manufacturer varchar2(50), 
     WeaponName varchar2(50),
     Primary Key (WID, Manufacturer, WeaponName),
@@ -155,25 +155,74 @@ CREATE TABLE Weapon_equip3 (
     Foreign Key (Manufacturer, WeaponName) References Weapon_equip1 (Manufacturer, WeaponName) ON DELETE CASCADE
 );
 
+insert into General values(1,'Theo Walsh','Lieutenant-General');
+insert into General values(2,'Zac Matthews','Colonel');
+insert into General values(3,'Emily Irwin','Lieutenant');
+insert into General values(4,'Sara Baxter','Second Lieutenant');
+insert into General values(5,'Julien Barron','Second Lieutenant'); 
 
+insert into Area values('Vancouver',1,'Urban','Canada'); 
+insert into Area values('British Columbia Mountain Range',2,'Mountain','Canada'); 
+insert into Area values('South Dakota Plain',3,'Plain','United States'); 
+insert into Area values('Northeast Siberia',4,'Plain','Russia'); 
+insert into Area values('Picardy Forest',5,'Forest','France'); 
 
--- insert into Weapon_equip1 values('United Technologies','M16A4',54,3.4,400,30,5.56);
--- insert into Weapon_equip1 values('BAE System','AWM',85,7.2,1600,7,300);
--- insert into Weapon_equip1 values('BAE System','M249',85,11.3,700,100,5.56);
--- insert into Weapon_equip1 values('Norico','QBZ95',60,3.7,400,30,5.56);
--- insert into Weapon_equip1 values('Norico','RGB-7',100,4.5,700,1,93);
--- insert into Weapon_equip1 values('Norico','Desert Eagle',60,1.2,200,7,0.44);
--- insert into Weapon_equip1 values('Kalashnikov Concern','AK-47',80,4.8,400,30,7.62);
--- insert into Weapon_equip1 values('TsNIITochMash','AN94',78,4.9,400,30,7.62);
--- insert into Weapon_equip1 values('Raytheon','Thompson',60,3.1,300,45,0.45);
--- insert into Weapon_equip1 values('Raytheon','RPK',80,9.2,800,60,7.62);
--- insert into Weapon_equip1 values('TsNIITochMash','DP-28',80,11.8,800,47,7.62);
--- insert into Weapon_equip1 values('Tula Arms Plant','MG42',79,11.6,800,100,7.62);
--- insert into Weapon_equip1 values('ST Kinetics','Gatling',90,77.2,1000,500,0.3);
--- insert into Weapon_equip1 values('Empresa Nacional Santa Bárbara','Type 69 RPG',97,4.8,600,1,85);
--- insert into Weapon_equip1 values('ST Kinetics','PF-89',98,5,400,1,80);
--- insert into Weapon_equip1 values('Armament Research and Development Establishment','RPG-2',96,4.4,200,1,82);
--- insert into Weapon_equip1 values('Armament Research and Development Establishment','RPG-16',90,4.6,800,1,58.3);
+insert into MilitaryUnit values(1,7,1,1);
+insert into MilitaryUnit values(2,12,2,0);
+insert into MilitaryUnit values(3,5,3,2);
+insert into MilitaryUnit values(4,10,4,0);
+insert into MilitaryUnit values(5,8,5,0);
+
+insert into Mission_takePlace_assign1 values(1,'Storm Operation',2020-01-03);
+insert into Mission_takePlace_assign1 values(2,'Code001',2017-06-08);
+insert into Mission_takePlace_assign1 values(3,'Rescue X',2018-03-15);
+insert into Mission_takePlace_assign1 values(4,'Black Sea Operation',2020-02-11);
+insert into Mission_takePlace_assign1 values(5,'BKSN',2019-12-26);
+
+insert into Mission_takePlace_assign2 values(NULL, 'IN_PROGRESS');
+insert into Mission_takePlace_assign2 values(2017-11-20,'COMPLETED');
+insert into Mission_takePlace_assign2 values(2018-03-18,'COMPLETED');
+insert into Mission_takePlace_assign2 values(NULL, 'IN_PROGRESS');
+insert into Mission_takePlace_assign2 values(NULL, 'IN_PROGRESS');
+
+insert into Mission_takePlace_assign3 values(1,1,1,5,NULL);
+insert into Mission_takePlace_assign3 values(2,5,4,2,2017-11-20);
+insert into Mission_takePlace_assign3 values(3,3,3,4,2018-03-18);
+insert into Mission_takePlace_assign3 values(4,4,5,3,NULL);
+insert into Mission_takePlace_assign3 values(5,2,2,1,NULL);
+
+insert into MissionBudgetReport_record values(1,20000,1000);
+insert into MissionBudgetReport_record values(2,50000,1001);
+insert into MissionBudgetReport_record values(3,42000,1002);
+insert into MissionBudgetReport_record values(4,8000,1003);
+insert into MissionBudgetReport_record values(5,5000,1004);
+
+insert into MUBudgetReport_record values(2015,5000,1);
+insert into MUBudgetReport_record values(2019,9000,2);
+insert into MUBudgetReport_record values(2018,4000,3);
+insert into MUBudgetReport_record values(2018,4500,4);
+insert into MUBudgetReport_record values(2017,8000,5);
+  
+-- TODO: 
+-- Populate Combantant table and onwards
+
+insert into Weapon_equip1 values('United Technologies','M16A4',54,400,30,5.56);
+insert into Weapon_equip1 values('BAE System','AWM',85,1600,7,300);
+insert into Weapon_equip1 values('BAE System','M249',85,700,100,5.56);
+insert into Weapon_equip1 values('Norico','QBZ95',60,400,30,5.56);
+insert into Weapon_equip1 values('Norico','RGB-7',100,700,1,93);
+insert into Weapon_equip1 values('Norico','Desert Eagle',60,200,7,0.44);
+insert into Weapon_equip1 values('Kalashnikov Concern','AK-47',80,400,30,7.62);
+insert into Weapon_equip1 values('TsNIITochMash','AN94',78,400,30,7.62);
+insert into Weapon_equip1 values('Raytheon','Thompson',60,300,45,0.45);
+insert into Weapon_equip1 values('Raytheon','RPK',80,800,60,7.62);
+insert into Weapon_equip1 values('TsNIITochMash','DP-28',80,800,47,7.62);
+insert into Weapon_equip1 values('Tula Arms Plant','MG42',79,800,100,7.62);
+insert into Weapon_equip1 values('ST Kinetics','Gatling',90,1000,500,0.3);
+insert into Weapon_equip1 values('Empresa Nacional Santa Bárbara','Type 69 RPG',97,600,1,85);
+insert into Weapon_equip1 values('ST Kinetics','PF-89',98,400,1,80);
+insert into Weapon_equip1 values('Armament Research and Development Establishment','RPG-2',96,200,1,82);
+insert into Weapon_equip1 values('Armament Research and Development Establishment','RPG-16',90,800,1,58.3);
 
 -- insert into Weapon_equip2 values(1,1998,8,'Bad');
 -- insert into Weapon_equip2 values(2,1996,14,'Good');
