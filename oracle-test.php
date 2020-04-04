@@ -25,23 +25,54 @@
         <h2>Reset</h2>
         <p>If you wish to reset the table press on the reset button. If this is the first time you're running this page, you MUST use reset</p>
 
-        <form method="POST" >
+        <form method="POST" action="oracle-test.php">
             <!-- if you want another page to load after the button is clicked, you have to specify that page in the action parameter -->
             <input type="hidden" id="resetTablesRequest" name="resetTablesRequest">
             <p><input type="submit" value="Reset" name="reset"></p>
         </form>
-
+        
         <!-- </hr> is a line -->
         <hr />
 
-        <h2>Insert Values into DemoTable</h2>
+        <h2>Insert Multiple Values into DemoTable WHA </h2>
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
-            Number: <input type="text" name="insNo"> <br /><br />
-            Name: <input type="text" name="insName"> <br /><br />
+            Number: <input type="text" name="insNo0"> <br /><br />
+            Name: <input type="text" name="insName0"> <br /><br /><br />
+            Number: <input type="text" name="insNo1"> <br /><br />
+            Name: <input type="text" name="insName1"> <br /><br /><br />
+            Number: <input type="text" name="insNo2"> <br /><br />
+            Name: <input type="text" name="insName2"> <br /><br /><br />
+            Number: <input type="text" name="insNo3"> <br /><br />
+            Name: <input type="text" name="insName3"> <br /><br /><br />
+           
 
             <input type="submit" value="Insert" name="insertSubmit"></p>
         </form>
+
+
+        <hr />
+        <!--Starts here-->
+        <h2>NEW THING: Adding single value</h2>
+        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+            <input type="hidden" id="requestInsert" name="requestInsert">
+            Number: <input type="text" name="val1"> <br /><br />
+            Name: <input type="text" name="val2"> <br /><br />
+
+            <input type="submit" value="Insert Button" name="clickInsert"></p>
+        </form>
+
+        <hr />
+
+        <h2>NEW THING: Delete a value</h2>
+        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
+            <input type="hidden" id="requestDelete" name="requestDelete">
+            Number: <input type="text" name="delField1"> <br /><br />
+            Name: <input type="text" name="delField2"> <br /><br />
+
+            <input type="submit" value="clickDelete" name="clickDelete"></p>
+        </form>
+
 
         <hr />
 
@@ -49,13 +80,84 @@
         <p>The values are case sensitive and if you enter in the wrong case, the update statement will not do anything.</p>
 
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
-            <input type="hidden" id="updateQueryRequest" name="updateQueryRequest">
+            <input type="hidden" id="requestUpdate" name="requestUpdate">
             Old Name: <input type="text" name="oldName"> <br /><br />
             New Name: <input type="text" name="newName"> <br /><br />
 
-            <input type="submit" value="Update" name="updateSubmit"></p>
+            <input type="submit" value="Update" name="clickUpdate"></p>
         </form>
 
+
+        <!-- GETTERS: Query -->
+        <hr />
+        <h2>NEW THING: Selection</h2>
+        <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
+            <input type="hidden" id="requestSelection" name="requestSelection">
+            Number: <input type="text" name="ss1"> <br /><br />
+            Name: <input type="text" name="ss2"> <br /><br />
+
+            <input type="submit" value="clickSelection" name="clickSelection"></p>
+        </form>
+
+        <hr />
+        <h2>NEW THING: Projection </h2>
+        <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
+            <input type="hidden" id="requestProjection" name="requestProjection">
+            Number: <input type="text" name="ss1"> <br /><br />
+            Name: <input type="text" name="ss2"> <br /><br />
+
+            <input type="submit" value="clickProjection" name="clickProjection"></p>
+        </form>
+
+        <hr />
+        <!--Pick one query of this category, which joins at least two tables and 
+        performs a meaningful query, and provide an interface for the user to 
+        choose this query (e.g. join the Customers and the Transactions table to find 
+        the phone numbers of all customers who has purchased a specific item).-->
+        <h2>NEW THING: Join Query</h2>
+        <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
+            <input type="hidden" id="requestJoin" name="requestJoin">
+            Number: <input type="text" name="ss1"> <br /><br />
+            Name: <input type="text" name="ss2"> <br /><br />
+
+            <input type="submit" value="clickJoin" name="clickJoin"></p>
+        </form>
+
+        <hr />
+        <h2>NEW THING: Aggregation query </h2>
+        <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
+            <input type="hidden" id="requestAgg" name="requestAgg">
+            Number: <input type="text" name="ss1"> <br /><br />
+            Name: <input type="text" name="ss2"> <br /><br />
+
+            <input type="submit" value="clickAgg" name="clickAgg"></p>
+        </form>
+        <hr />
+        <h2>NEW THING: GroupBy </h2>
+        <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
+            <input type="hidden" id="requestGroupBy" name="requestGroupBy">
+            Number: <input type="text" name="ss1"> <br /><br />
+            Name: <input type="text" name="ss2"> <br /><br />
+
+            <input type="submit" value="clickGroupBy" name="clickGroupBy"></p>
+        </form>
+        <hr />
+        <h2>NEW THING: Division </h2>
+        <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
+            <input type="hidden" id="requestDivision" name="requestDivision">
+            Number: <input type="text" name="ss1"> <br /><br />
+            Name: <input type="text" name="ss2"> <br /><br />
+
+            <input type="submit" value="clickDivision" name="clickDivision"></p>
+        </form>
+
+
+
+
+
+
+
+        
         <hr />
 
         <h2>Count the Tuples in DemoTable</h2>
@@ -182,7 +284,6 @@
             $old_name = $_POST['oldName'];
             $new_name = $_POST['newName'];
 
-            // 轻轻的，我来了:D 
             // you need the wrap the old name and new name values with single quotations
             executePlainSQL("UPDATE demoTable SET name='" . $new_name . "' WHERE name='" . $old_name . "'");
             OCICommit($db_conn);
@@ -203,15 +304,20 @@
             global $db_conn;
 
             //Getting the values from user and insert data into the table
-            $tuple = array (
-                ":bind1" => $_POST['insNo'],
-                ":bind2" => $_POST['insName']
-            );
+           
 
-            $alltuples = array (
-                $tuple
-            );
-
+            // array(":bind1" => $_POST['insNo{$i}'], ":bind2" => $_POST['insName{$i}']);
+            $alltuples =[];
+            echo $_POST["insNo3"] == null;
+            
+            for ($i = 0; $i < 4; $i++){
+                if (($_POST["insNo{$i}"] != null) && ($_POST["insName{$i}"] != null)){
+                    array_push($alltuples,[":bind1" => $_POST["insNo{$i}"], ":bind2" => $_POST["insName{$i}"]]);
+                }
+            }
+            echo '<pre>';
+            print_r($alltuples);
+            echo '</pre>';
             executeBoundSQL("insert into demoTable values (:bind1, :bind2)", $alltuples);
             OCICommit($db_conn);
         }
@@ -226,16 +332,107 @@
             }
         }
 
+        // tester insert
+        function handleJL() {
+            global $db_conn;
+        
+            executePlainSQL("INSERT INTO demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            OCICommit($db_conn);
+        }
+
+        function handleDelete() {
+            global $db_conn;
+            
+            
+            executePlainSQL("DELETE FROM demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            OCICommit($db_conn);
+        } 
+        function handleUpdate() {
+            global $db_conn;
+
+            // $old_name = $_POST['oldName'];
+            // $new_name = $_POST['newName'];
+
+            // // you need the wrap the old name and new name values with single quotations
+            // executePlainSQL("UPDATE demoTable SET name='" . $new_name . "' WHERE name='" . $old_name . "'");
+            OCICommit($db_conn);
+        }
+
+        // query handlers
+        function handleProjection() {
+            global $db_conn;
+            
+            
+            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            OCICommit($db_conn);
+        } 
+
+        function handleSelection() {
+            global $db_conn;
+            
+            
+            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            OCICommit($db_conn);
+        } 
+        function handleJoin() {
+            global $db_conn;
+            
+            
+            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            OCICommit($db_conn);
+        } 
+        function handleAgg() {
+            global $db_conn;
+            
+            
+            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            OCICommit($db_conn);
+        } 
+        function handleGroupBy() {
+            global $db_conn;
+            
+            
+            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            OCICommit($db_conn);
+        } 
+        function handleDivision() {
+            global $db_conn;
+            
+            
+            executePlainSQL("INSERT INTO demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            OCICommit($db_conn);
+        } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // HANDLE ALL POST ROUTES
 	// A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
         function handlePOSTRequest() {
             if (connectToDB()) {
                 if (array_key_exists('resetTablesRequest', $_POST)) {
                     handleResetRequest();
-                } else if (array_key_exists('updateQueryRequest', $_POST)) {
+                } else if (array_key_exists('requestUpdate', $_POST)) {
                     handleUpdateRequest();
                 } else if (array_key_exists('insertQueryRequest', $_POST)) {
                     handleInsertRequest();
+                } else if (array_key_exists('requestInsert', $_POST)) {
+                    handleJL();
+                } else if (array_key_exists('requestDelete', $_POST)) {
+                    handleDeleteRequest();
                 }
 
                 disconnectFromDB();
@@ -248,15 +445,29 @@
             if (connectToDB()) {
                 if (array_key_exists('countTuples', $_GET)) {
                     handleCountRequest();
+                } else if (array_key_exists('requestSelection', $_POST)) {
+                    handleSelection();
+                } else if (array_key_exists('requestProjection', $_POST)) {
+                    handleProjection();
+                } else if (array_key_exists('requestJoin', $_POST)) {
+                    handleJoin();
+                } else if (array_key_exists('requestAgg', $_POST)) {
+                    handleAgg();
+                } else if (array_key_exists('requestGroupBy', $_POST)) {
+                    handleGroupBy();
+                } else if (array_key_exists('requestDivision', $_POST)) {
+                    handleDivision();
                 }
 
                 disconnectFromDB();
             }
         }
 
-		if (isset($_POST['reset']) || isset($_POST['updateSubmit']) || isset($_POST['insertSubmit'])) {
+        if (isset($_POST['reset']) || isset($_POST['insertSubmit'])|| 
+            isset($_POST['clickUpdate']) || isset($_POST['clickInsert']) || isset($_POST['clickDelete'])) {
             handlePOSTRequest();
-        } else if (isset($_GET['countTupleRequest'])) {
+        } else if (isset($_GET['countTupleRequest']) || isset($_GET['clickSelection']) 
+            || isset($_GET['clickProjection']) || isset($_GET['clickJoin']) || isset($_GET['clickAgg'])|| isset($_GET['clickGroupBy'])|| isset($_GET['clickDivision']) ) {
             handleGETRequest();
         }
 		?>
