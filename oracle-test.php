@@ -34,7 +34,7 @@
         <!-- </hr> is a line -->
         <hr />
 
-        <h2>Insert Multiple Values into DemoTable WHA </h2>
+        <h2>Insert Multiple Values into DemoTable </h2>
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
             Number: <input type="text" name="insNo0"> <br /><br />
@@ -103,8 +103,8 @@
         <h2>NEW THING: Projection </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestProjection" name="requestProjection">
-            Number: <input type="text" name="ss1"> <br /><br />
-            Name: <input type="text" name="ss2"> <br /><br />
+            arg1: <input type="text" name="pp1"> <br /><br />
+            arg2: <input type="text" name="pp2"> <br /><br />
 
             <input type="submit" value="clickProjection" name="clickProjection"></p>
         </form>
@@ -151,13 +151,6 @@
             <input type="submit" value="clickDivision" name="clickDivision"></p>
         </form>
 
-
-
-
-
-
-
-        
         <hr />
 
         <h2>Count the Tuples in DemoTable</h2>
@@ -247,7 +240,8 @@
             echo "<tr><th>ID</th><th>Name</th></tr>";
 
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-                echo "<tr><td>" . $row["NID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]" 
+                echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]" 
+                // echo $row[0];
             }
 
             echo "</table>";
@@ -328,7 +322,9 @@
             $result = executePlainSQL("SELECT Count(*) FROM demoTable");
 
             if (($row = oci_fetch_row($result)) != false) {
-                echo "<br> The number of tuples in demoTable: " . $row[0] . "<br>";
+                // echo "<br> The number of tuples in demoTable: " . $row[0] . "<br>";
+                $result = executePlainSQL("select * from demoTable");
+		        printResult($result);
             }
         }
 
@@ -362,8 +358,11 @@
         function handleProjection() {
             global $db_conn;
             
+            // executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
             
-            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            // echo 'PROJECTION';
+            $result = executePlainSQL("SELECT {$_GET['pp1']} FROM demoTable");
+            printResult($result);
             OCICommit($db_conn);
         } 
 
@@ -399,25 +398,9 @@
             global $db_conn;
             
             
-            executePlainSQL("INSERT INTO demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
             OCICommit($db_conn);
         } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // HANDLE ALL POST ROUTES
 	// A better coding practice is to have one method that reroutes your requests accordingly. It will make it easier to add/remove functionality.
@@ -425,13 +408,13 @@
             if (connectToDB()) {
                 if (array_key_exists('resetTablesRequest', $_POST)) {
                     handleResetRequest();
-                } else if (array_key_exists('requestUpdate', $_POST)) {
-                    handleUpdateRequest();
                 } else if (array_key_exists('insertQueryRequest', $_POST)) {
+                    handleUpdateRequest();
+                } else if (array_key_exists('clickUpdate', $_POST)) {
                     handleInsertRequest();
-                } else if (array_key_exists('requestInsert', $_POST)) {
+                } else if (array_key_exists('clickInsert', $_POST)) {
                     handleJL();
-                } else if (array_key_exists('requestDelete', $_POST)) {
+                } else if (array_key_exists('clickDelete', $_POST)) {
                     handleDeleteRequest();
                 }
 
@@ -445,17 +428,17 @@
             if (connectToDB()) {
                 if (array_key_exists('countTuples', $_GET)) {
                     handleCountRequest();
-                } else if (array_key_exists('requestSelection', $_POST)) {
+                } else if (array_key_exists('clickSelection', $_GET)) {
                     handleSelection();
-                } else if (array_key_exists('requestProjection', $_POST)) {
+                } else if (array_key_exists('clickProjection', $_GET)) {
                     handleProjection();
-                } else if (array_key_exists('requestJoin', $_POST)) {
+                } else if (array_key_exists('clickJoin', $_GET)) {
                     handleJoin();
-                } else if (array_key_exists('requestAgg', $_POST)) {
+                } else if (array_key_exists('clickAgg', $_GET)) {
                     handleAgg();
-                } else if (array_key_exists('requestGroupBy', $_POST)) {
+                } else if (array_key_exists('clickGroupBy', $_GET)) {
                     handleGroupBy();
-                } else if (array_key_exists('requestDivision', $_POST)) {
+                } else if (array_key_exists('clickDivision', $_GET)) {
                     handleDivision();
                 }
 
@@ -464,13 +447,12 @@
         }
 
         if (isset($_POST['reset']) || isset($_POST['insertSubmit'])|| 
-            isset($_POST['clickUpdate']) || isset($_POST['clickInsert']) || isset($_POST['clickDelete'])) {
+            isset($_POST['requestUpdate']) || isset($_POST['requestInsert']) || isset($_POST['requestDelete'])) {
             handlePOSTRequest();
-        } else if (isset($_GET['countTupleRequest']) || isset($_GET['clickSelection']) 
-            || isset($_GET['clickProjection']) || isset($_GET['clickJoin']) || isset($_GET['clickAgg'])|| isset($_GET['clickGroupBy'])|| isset($_GET['clickDivision']) ) {
+        } else if (isset($_GET['countTupleRequest']) || isset($_GET['requestSelection']) 
+            || isset($_GET['requestProjection']) || isset($_GET['requestJoin']) || isset($_GET['requestAgg'])|| isset($_GET['requestGroupBy'])|| isset($_GET['requestDivision']) ) {
             handleGETRequest();
         }
 		?>
 	</body>
 </html>
-
