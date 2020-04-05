@@ -1,26 +1,27 @@
 query examples:
 
--- Select: select attribute in 1st field, type in operators(>,<,=, <=) in 2nd field, and value in the 3rd field.
+-- Selection: select attribute in 1st field, type in operators(>,<,=, <=) in 2nd field, and value in the 3rd field.
 examples:
 SELECT * FROM MilitaryUnit WHERE Capacity > 10; 
 SELECT * FROM MilitaryUnit WHERE Death < 1;
 
--- Project examples:
+-- Projection: project on Combatant
+examples:
 SELECT * FROM Combatant;   			// select nothing, click Enter.
 SELECT Combatant_name, CID, MUID FROM Combatant;// select checkbox: Combatant_name, CID, MUID
 
 
 -- Join: select two tables to join
+examples:
 SELECT * FROM Combatant natural join Commander;
+SELECT * FROM Combatant natural join Soldier_enrolls;
 
-
--- Agg: total num of Combatant older than N.
+-- Aggregation: total num of Combatant older than N.
 ex:
 SELECT Count(*) FROM Combatant WHERE Age > 30;
 
 
--- Nested agg + groupby:
--- find the muid with the lowest avg age (youngest unit)
+-- Nested agg + groupby:  find the muid with the lowest avg age (youngest unit)
 SELECT MIN(AvgAge) AS LowestAvgAge FROM (SELECT MUID, AVG(Age) AS AvgAge FROM Combatant GROUP BY MUID);
 
 
