@@ -20,8 +20,8 @@
             background-image: url("wolf2.jpg");
 
             /* Add the blur effect */
-            filter: blur(0px);
-            -webkit-filter: blur(0px);
+            filter: blur(3px);
+            -webkit-filter: blur(3px);
 
             /* Full height */
             height: 100%;
@@ -43,7 +43,7 @@
             font-weight: bold;
             border: 3px solid #f1f1f1;
             position: absolute;
-            top: 68%;
+            top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
