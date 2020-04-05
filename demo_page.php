@@ -88,7 +88,7 @@
         <div class="dropdown">
                 <button class="dropbtn">Select Operation</button>
                 <div class="dropdown-content">
-                <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/reset_page.php">Reset</a></p>
+                <!-- <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/reset_page.php">Reset</a></p> -->
 
                 <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Insert_page.php">Insert</a></p>
                 <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Delete_page.php">Delete</a></p>
