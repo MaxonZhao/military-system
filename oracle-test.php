@@ -17,6 +17,28 @@
   OCILogon below to be your ORACLE username and password -->
 
 <html>
+
+    <html>
+    <body>
+     
+    <h1 style="color:blue;">CPSC 304 PHP/Oracle Demonstration</h1>
+     
+    </body>
+    </html>
+    <!DOCTYPE html>
+<html>
+<body>
+
+<h2>Image Size</h2>
+
+<p>In this example, we specify the width and height of an image with the width and height attributes:</p>
+
+<img src="background_img.png" alt="Girl in a jacket" width="500" height="600">
+
+</body>
+
+</html>
+
     <head>
         <title>CPSC 304 PHP/Oracle Demonstration</title>
     </head>
@@ -143,6 +165,8 @@
 
         <h2>Result</h2>
         <hr />
+
+        
         <!-- 
         <h2>Count the Tuples in DemoTable</h2>
         <form method="GET" action="oracle-test.php"> 
