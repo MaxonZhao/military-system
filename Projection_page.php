@@ -258,8 +258,8 @@
             $query = "SELECT * FROM Combatant";
         }
         // echo $query;
-        // printCombatantSelectionTable(executePlainSQL($query),$projectionList);
-        printResultCombatant(executePlainSQL($query));
+        printCombatantSelectionTable(executePlainSQL($query),$projectionList);
+        // printResultCombatant(executePlainSQL($query));
     } 
 
 
