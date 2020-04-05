@@ -76,7 +76,7 @@
 
         .dropdown-content a {
             color: black;
-            padding: 12px 16px;
+            padding: 5px 12px;
             text-decoration: none;
             display: block;
         }
@@ -109,7 +109,9 @@
             <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Selection_page.php">Selection</a></p>
             <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Projection_page.php">Projection</a></p>
             <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Join_page.php">Join</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/GroupBy_page.php">Group By</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Agg_page.php">Aggregation</a></p>
+            
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/GroupBy_page.php">Nested Aggr with Group By</a></p>
             <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Division_page.php">Division</a></p>
         </div>
     </div>

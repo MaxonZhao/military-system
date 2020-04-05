@@ -1,24 +1,33 @@
--- Select: 
-SELECT * FROM MilitaryUnit WHERE Capacity > 10;
+query examples:
 
--- Project: project Combatant_name, CID, MUID
-SELECT Combatant_name, CID, MUID FROM Combatant;
+-- Select: select attribute in 1st field, type in operators(>,<,=, <=) in 2nd field, and value in the 3rd field.
+examples:
+SELECT * FROM MilitaryUnit WHERE Capacity > 10; 
+SELECT * FROM MilitaryUnit WHERE Death < 1;
+
+-- Project examples:
+SELECT * FROM Combatant;   			// select nothing, click Enter.
+SELECT Combatant_name, CID, MUID FROM Combatant;// select checkbox: Combatant_name, CID, MUID
 
 
--- Join: Join Combatant Vehicle_has2 Vehicle_has3
-  
+-- Join: select two tables to join
 SELECT * FROM Combatant natural join Commander;
 
 
--- Agg: total num of Combatant older than 30.
+-- Agg: total num of Combatant older than or equal N.
 SELECT Count(*) FROM Combatant WHERE Age >= 30;
 
 
--- groupby:
+-- Nested agg + groupby:
 -- find the muid with the lowest avg age (youngest unit)
 SELECT MIN(AvgAge) AS LowestAvgAge FROM (SELECT MUID, AVG(Age) AS AvgAge FROM Combatant GROUP BY MUID);
 
 
--- todo
--- divide
-SELECT * FROM MilitaryUnit m WHERE NOT EXISTS ((SELECT a.AreaID from Area a) MINUS (select t.AreaID from Mission_takePlace_assign3 t where t.MUID = m.MUID))
+
+-- Division: Find all MilitaryUnit that have been to very Area in missions.
+SELECT * 
+FROM MilitaryUnit m 
+WHERE NOT EXISTS 
+((SELECT a.AreaID from Area a) 
+MINUS 
+(select t.AreaID from Mission_takePlace_assign3 t where t.MUID = m.MUID))
