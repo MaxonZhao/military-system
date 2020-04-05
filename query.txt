@@ -14,8 +14,9 @@ SELECT Combatant_name, CID, MUID FROM Combatant;// select checkbox: Combatant_na
 SELECT * FROM Combatant natural join Commander;
 
 
--- Agg: total num of Combatant older than or equal N.
-SELECT Count(*) FROM Combatant WHERE Age >= 30;
+-- Agg: total num of Combatant older than N.
+ex:
+SELECT Count(*) FROM Combatant WHERE Age > 30;
 
 
 -- Nested agg + groupby:
