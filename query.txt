@@ -1,6 +1,6 @@
 query examples:
 
--- Selection: select attribute in 1st field, type in operators(>,<,=, <=) in 2nd field, and value in the 3rd field.
+-- Selection: select attribute in 1st field, type in operators(>,<,=, <=) in 2nd field, and input value in the 3rd field.
 examples:
 SELECT * FROM MilitaryUnit WHERE Capacity > 10; 
 SELECT * FROM MilitaryUnit WHERE Death < 1;
@@ -8,15 +8,15 @@ SELECT * FROM MilitaryUnit WHERE Death < 1;
 -- Projection: project on Combatant
 examples:
 SELECT * FROM Combatant;   			// select nothing, click Enter.
-SELECT Combatant_name, CID, MUID FROM Combatant;// select checkbox: Combatant_name, CID, MUID
+SELECT Combatant_name, CID, MUID FROM Combatant;// select checkbox: Combatant_name, CID, MUID, etc.
 
 
--- Join: select two tables to join
+-- Join: select two tables to join(case 1)
 examples:
 SELECT * FROM Combatant natural join Commander;
 SELECT * FROM Combatant natural join Soldier_enrolls;
 
--- Aggregation: total num of Combatant older than N.
+-- Aggregation: total num of Combatant older than N where N is an integer input from user
 ex:
 SELECT Count(*) FROM Combatant WHERE Age > 30;
 
@@ -26,7 +26,7 @@ SELECT MIN(AvgAge) AS LowestAvgAge FROM (SELECT MUID, AVG(Age) AS AvgAge FROM Co
 
 
 
--- Division: Find all MilitaryUnit that have been to very Area in missions.
+-- Division: Find all MilitaryUnit that have been to every Area in missions.  
 SELECT * 
 FROM MilitaryUnit m 
 WHERE NOT EXISTS 

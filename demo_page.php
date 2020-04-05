@@ -120,8 +120,7 @@
     <div class="bg-image"></div>
 
     <div class="bg-text">
-        <h1 style="font-size:50px">CPSC 304 PHP/Oracle Demo Page</h1>
-        <!-- <h1 style="color:red;font-size:50px">犯我中华者 虽远必诛</h1> -->
+        <h1 style="font-size:50px">Military System Demo Page</h1>
 
         <form method="POST" action="demo_page.php">
             <!--refresh page when submitted-->
