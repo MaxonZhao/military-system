@@ -3,10 +3,10 @@
 
 TECH STACK:  PHP + ORACLE
 
-Initialization script: table.sql
-ListOfQuery: query.txt
-Screenshot: ./screenshot
-Final Documentation with cover page:
+- Initialization script: table.sql
+- ListOfQuery: query.txt
+- Screenshot: ./screenshot
+- Final Documentation with cover page:
 https://docs.google.com/document/d/1KXVZqldMKBw2XQDr41Ram31O048xrKHMyqIgp_cOhCk/edit#heading=h.gjdgxs
 
 
