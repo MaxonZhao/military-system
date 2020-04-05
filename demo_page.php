@@ -17,17 +17,18 @@
 
         .bg-image {
             /* The image used */
-            background-image: url("special_force.jpg");
+            background-image: url("wolf2.jpg");
 
             /* Add the blur effect */
-            filter: blur(4px);
-            -webkit-filter: blur(4px);
+            filter: blur(0px);
+            -webkit-filter: blur(0px);
 
             /* Full height */
             height: 100%;
 
             /* Center and scale the image nicely */
-            background-position: center;
+            /* background-position: center; */
+            background-position: 50% 25%;
             background-repeat: no-repeat;
             background-size: cover;
         }
@@ -42,7 +43,7 @@
             font-weight: bold;
             border: 3px solid #f1f1f1;
             position: absolute;
-            top: 30%;
+            top: 68%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
