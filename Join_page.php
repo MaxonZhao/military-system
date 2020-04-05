@@ -201,7 +201,7 @@
 
     function printDynamicTable($result)
     { //prints results from a select statement
-        echo "<br>Retrieved data from table Combatant:<br>";
+        echo "<br>Retrieved data from joined table :<br>";
         echo "<table>";
         $flag = FALSE;
 
@@ -217,7 +217,7 @@
             }
             echo "</tr>";
             echo "<tr>";
-            for ($i = 1; $i <= count($row); $i++) {
+            for ($i = 0; $i <= count($row); $i++) {
                 echo "<td>" . $row[$i] . "</td>";
             }
             echo "</tr>";
@@ -312,7 +312,7 @@
             disconnectFromDB();
         }
     } else if (isset($_POST['DEMO_redirect'])) {
-        header('Location: https://www.students.cs.ubc.ca/~mhlchina/demo_page.php');
+        header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
         exit;
     }
     ?>

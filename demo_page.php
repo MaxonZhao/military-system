@@ -101,15 +101,15 @@
         <div class="dropdown-content">
             <!-- <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/reset_page.php">Reset</a></p> -->
 
-            <p><a href="https://www.students.cs.ubc.ca/~mhlchina/Insert_page.php">Insert</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~mhlchina/Delete_page.php">Delete</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~mhlchina/Update_page.php">Update</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Insert_page.php">Insert</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Delete_page.php">Delete</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Update_page.php">Update</a></p>
 
-            <p><a href="https://www.students.cs.ubc.ca/~mhlchina/Selection_page.php">Selection</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~mhlchina/Projection_page.php">Projection</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~mhlchina/Join_page.php">Join</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~mhlchina/GroupBy_page.php">Group By</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~mhlchina/Division_page.php">Division</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Selection_page.php">Selection</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Projection_page.php">Projection</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Join_page.php">Join</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/GroupBy_page.php">Group By</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Division_page.php">Division</a></p>
         </div>
     </div>
 
@@ -129,7 +129,7 @@
     <?php
 
     if (isset($_POST['START_redirect'])) {
-        header('Location: https://www.students.cs.ubc.ca/~mhlchina/cover_page.php');
+        header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/cover_page.php');
         exit;
     }
 

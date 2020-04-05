@@ -70,7 +70,7 @@
                         <font size="5" face="serif" color="white">We are UBC students Maxon/Mike/Jialin
                     </p>
                     <p>
-                        <font size="5" face="serif" color="green">Click to start Demo
+                        <font size="5" face="serif" color="red">Click to start Demo
                     </p>
                     <form method="POST" action="cover_page.php">
                         <!--refresh page when submitted-->
@@ -82,7 +82,7 @@
     <?php
 
     if (isset($_POST['START_redirect'])) {
-        header('Location: https://www.students.cs.ubc.ca/~mhlchina/demo_page.php');
+        header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
         exit;
     }
     ?>

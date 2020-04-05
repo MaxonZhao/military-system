@@ -208,7 +208,7 @@
             disconnectFromDB();
         }
     } else if (isset($_POST['DEMO_redirect'])) {
-        header('Location: https://www.students.cs.ubc.ca/~mhlchina/demo_page.php');
+        header('Location: https://www.students.cs.ubc.ca/~maxonzz/military-system/demo_page.php');
         exit;
     } 
     ?> 

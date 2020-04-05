@@ -212,7 +212,7 @@
     if (isset($_POST['reset'])) {
          handleResetRequest();
     } else if (isset($_POST['DEMO_redirect'])) {
-        header('Location: https://www.students.cs.ubc.ca/~mhlchina/demo_page.php');
+        header('Location: https://www.students.cs.ubc.ca/~maxonzz/demo_page.php');
         exit;
     }
     ?>
