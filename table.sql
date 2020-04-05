@@ -367,11 +367,32 @@ SELECT MIN(AvgAge) AS LowestAvgAge FROM (SELECT MUID, AVG(Age) AS AvgAge FROM Co
 
 -- todo
 -- divide
-combatants that have been to every location
+MUNIT that have been to every location
 
-SELECT Count(*) 
-FROM Combatant
-WHERE 
+SELECT m.MUID FROM MilitaryUnit m WHERE NOT EXISTS ((SELECT a.AreaID from Area a) MINUS (select t.AreaID from Mission_takePlace_assign3 t where t.MUID = m.MUID));
 
+SELECT m.MUID
+FROM MilitaryUnit as m
+WHERE NOT EXISTS
+    (
+        (SELECT a.AreaID 
+        from Area as a) 
+    EXCEPT
+        (select t.AreaID
+        from Mission_takePlace_assign3 as t
+        where t.MUID = m.MUID));
 
+SELECT s.SName
+FROM student s
+WHERE NOT EXISTS
+    ((SELECT c.cid from course c) 
+    EXCEPT
+    (select E.cid
+    from Enrolled E
+    where E.sid = S.sid));
+
+SELECT * FROM Area;
+SELECT * FROM Area a WHERE NOT EXISTS ((SELECT a.AreaID from Area a));
+SELECT * FROM Area a WHERE NOT EXISTS ((SELECT a.AreaID from Area a) MINUS (SELECT a.AreaID from Area a));
+select * from AREA as a;
 */

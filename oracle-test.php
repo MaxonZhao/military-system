@@ -134,7 +134,7 @@
         <h2>NEW THING: Division </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestDivision" name="requestDivision">
-            Show division query.<br /><br />
+            Show Military Unit that have been to every Area.<br /><br />
 
             <input type="submit" value="clickDivision" name="clickDivision"></p>
         </form>
@@ -250,19 +250,6 @@
         }
 
         function printResultJoin($result) { //prints results from a select statement
-            echo "<br>Retrieved data from table MilitaryUnit:<br>";
-            echo "<table>";
-            echo "<tr><th>Combatant_name</th><th>Make</th><th>VehicleType</th></tr>";
-
-            while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>"; //or just use "echo $row[0]" 
-                // echo $row[0];
-            }
-
-            echo "</table>";
-        }
-
-        function printResultDivision($result) { //prints results from a select statement
             echo "<br>Retrieved data from table MilitaryUnit:<br>";
             echo "<table>";
             echo "<tr><th>Combatant_name</th><th>Make</th><th>VehicleType</th></tr>";
@@ -413,8 +400,8 @@
             }
         } 
         function handleDivision() {
-            $result = executePlainSQL("");
-            printResultDivision($result);
+            $result = executePlainSQL("SELECT * FROM MilitaryUnit m WHERE NOT EXISTS ((SELECT a.AreaID from Area a) MINUS (select t.AreaID from Mission_takePlace_assign3 t where t.MUID = m.MUID))");
+            printResultMilitaryUnit($result);
         } 
 
         // HANDLE ALL POST ROUTES
