@@ -1,0 +1,24 @@
+-- Select: 
+SELECT * FROM MilitaryUnit WHERE Capacity > 10;
+
+-- Project: project Combatant_name, CID, MUID
+SELECT Combatant_name, CID, MUID FROM Combatant;
+
+
+-- Join: Join Combatant Vehicle_has2 Vehicle_has3
+  
+SELECT * FROM Combatant natural join Commander;
+
+
+-- Agg: total num of Combatant older than 30.
+SELECT Count(*) FROM Combatant WHERE Age >= 30;
+
+
+-- groupby:
+-- find the muid with the lowest avg age (youngest unit)
+SELECT MIN(AvgAge) AS LowestAvgAge FROM (SELECT MUID, AVG(Age) AS AvgAge FROM Combatant GROUP BY MUID);
+
+
+-- todo
+-- divide
+SELECT * FROM MilitaryUnit m WHERE NOT EXISTS ((SELECT a.AreaID from Area a) MINUS (select t.AreaID from Mission_takePlace_assign3 t where t.MUID = m.MUID))
