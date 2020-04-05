@@ -109,10 +109,11 @@
             <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Selection_page.php">Selection</a></p>
             <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Projection_page.php">Projection</a></p>
             <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Join_page.php">Join</a></p>
-            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Agg_page.php">Aggregation</a></p>
-            
-            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/GroupBy_page.php">Nested Aggr with Group By</a></p>
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Aggregation_page.php">Aggregation</a></p>
+             
+            <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/GroupBy_page.php">Group By(Nested Query)</a></p>
             <p><a href="https://www.students.cs.ubc.ca/~maxonzz/military-system/Division_page.php">Division</a></p>
+            
         </div>
     </div>
 
@@ -120,6 +121,7 @@
 
     <div class="bg-text">
         <h1 style="font-size:50px">CPSC 304 PHP/Oracle Demo Page</h1>
+        <!-- <h1 style="color:red;font-size:50px">犯我中华者 虽远必诛</h1> -->
 
         <form method="POST" action="demo_page.php">
             <!--refresh page when submitted-->
