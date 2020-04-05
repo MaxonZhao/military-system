@@ -18,8 +18,8 @@
     background-image: url("war_image.jpg");
     
     /* Add the blur effect */
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
     
     /* Full height */
     height: 100%; 

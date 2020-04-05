@@ -15,11 +15,11 @@
 
     .bg-image {
     /* The image used */
-    background-image: url("war_image.jpg");
+    background-image: url("special_force2.jpg");
     
     /* Add the blur effect */
-    filter: blur(8px);
-    -webkit-filter: blur(8px);
+    filter: blur(2.5px);
+    -webkit-filter: blur(2.5px);
     
     /* Full height */
     height: 100%; 
@@ -27,7 +27,7 @@
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
     }
 
     /* Position text in the middle of the page/image */
