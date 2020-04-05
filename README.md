@@ -2,7 +2,7 @@
 304 project
 
 TECH STACK:  PHP + ORACLE
-
+- Website: https://www.students.cs.ubc.ca/~maxonzz/military-system/cover_page.php
 - Initialization script: table.sql
 - ListOfQuery: query.txt
 - Screenshot: ./screenshot
