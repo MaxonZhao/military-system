@@ -62,12 +62,12 @@
 
         <hr />
 
-        <h2>Update Name in DemoTable</h2>
+        <h2>Update Combatant Name in Combatant</h2>
         <p>The values are case sensitive and if you enter in the wrong case, the update statement will not do anything.</p>
 
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestUpdate" name="requestUpdate">
-            Old CID: <input type="text" name="oldName"> <br /><br />
+            Combatant's CID: <input type="text" name="oldName"> <br /><br />
             New Name: <input type="text" name="newName"> <br /><br />
 
             <input type="submit" value="Update" name="clickUpdate"></p>
@@ -76,7 +76,7 @@
 
         <!-- GETTERS: Query -->
         <hr />
-        <h2>NEW THING: Selection</h2>
+        <h2>NEW THING: Selection on Military Unit Where capacity is greater than certain value</h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestSelection" name="requestSelection">
             Capacity > <input type="text" name="sl1"> <br /><br />
@@ -85,7 +85,7 @@
         </form>
 
         <hr />
-        <h2>NEW THING: Projection </h2>
+        <h2>NEW THING: Projection on Combatant </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestProjection" name="requestProjection">
             CID: <input type="checkbox" name="chval0"> <br /><br />
@@ -106,10 +106,10 @@
         performs a meaningful query, and provide an interface for the user to 
         choose this query (e.g. join the Customers and the Transactions table to find 
         the phone numbers of all customers who has purchased a specific item).-->
-        <h2>NEW THING: Join Query</h2>
+        <h2>NEW THING: Join Query: </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestJoin" name="requestJoin">
-            Find combatant name, make and vehicle type<br /><br />
+            Find all combatants with their military unit's associated vehicle's make and type<br /><br />
 
             <input type="submit" value="clickJoin" name="clickJoin"></p>
         </form>
@@ -126,7 +126,7 @@
         <h2>NEW THING: GroupBy </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestGroupBy" name="requestGroupBy">
-            Show lowest average age of military unit.<br /><br />
+            Show the military unit with the lowest average age of all military units. <br /><br />
 
             <input type="submit" value="clickGroupBy" name="clickGroupBy"></p>
         </form>
@@ -134,18 +134,22 @@
         <h2>NEW THING: Division </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestDivision" name="requestDivision">
-            Show Military Unit that have been to every Area.<br /><br />
+            Show the Military Units that have been to every Area in missions.<br /><br />
 
             <input type="submit" value="clickDivision" name="clickDivision"></p>
         </form>
 
         <hr />
 
+        <h2>Result</h2>
+        <hr />
+        <!-- 
         <h2>Count the Tuples in DemoTable</h2>
-        <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
+        <form method="GET" action="oracle-test.php"> 
             <input type="hidden" id="countTupleRequest" name="countTupleRequest">
             <input type="submit" name="countTuples"></p>
-        </form>
+        </form> 
+        -->
 
         <?php
 		//this tells the system that it's no longer just parsing html; it's now parsing PHP
