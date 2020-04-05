@@ -118,8 +118,8 @@
         <h2>NEW THING: Aggregation query </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestAgg" name="requestAgg">
-            How many combatants are older than 30? <br /><br />
-
+            How many combatants are older than __? <br /><br />
+            Number: <input type="text" name="aggNum"> <br /><br />
             <input type="submit" value="clickAgg" name="clickAgg"></p>
         </form>
         <hr />
@@ -386,10 +386,10 @@
             printResultJoin($result);
         } 
         function handleAgg() {
-            $result = executePlainSQL("SELECT Count(*) FROM Combatant WHERE Age > 30");
+            $result = executePlainSQL("SELECT Count(*) FROM Combatant WHERE Age > {$_GET['aggNum']}");
 
             if (($row = oci_fetch_row($result)) != false) {
-                echo "<br> There are ". $row[0] ." people/person older than 30 in Combatant. <br>";
+                echo "<br> There are ". $row[0] ." people/person older than {$_GET['aggNum']} in Combatant. <br>";
             }
         } 
         function handleGroupBy() {
