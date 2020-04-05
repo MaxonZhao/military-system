@@ -15,11 +15,11 @@
 
     .bg-image {
     /* The image used */
-    background-image: url("war_image.jpg");
+    background-image: url("special_force.jpg");
     
     /* Add the blur effect */
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
     
     /* Full height */
     height: 100%; 
