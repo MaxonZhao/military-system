@@ -217,7 +217,7 @@
             }
             echo "</tr>";
             echo "<tr>";
-            for ($i = 1; $i <= count($row); $i++) {
+            for ($i = 0; $i <= count($row); $i++) {
                 echo "<td>" . $row[$i] . "</td>";
             }
             echo "</tr>";

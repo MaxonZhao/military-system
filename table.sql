@@ -103,14 +103,14 @@ CREATE TABLE Combatant(
 
 
 CREATE TABLE Commander(
-	CMID NUMBER primary key,
+	CID NUMBER primary key,
 	Commander_rank varchar2(50), 
-    Foreign Key (CMID) References Combatant (CID) ON DELETE CASCADE
+    Foreign Key (CID) References Combatant (CID) ON DELETE CASCADE
 );
 CREATE TABLE Soldier_enrolls(
-    SoID NUMBER primary key,  
+    CID NUMBER primary key,  
     Kills NUMBER,
-    Foreign Key (SoID) References Combatant (CID) ON DELETE CASCADE
+    Foreign Key (CID) References Combatant (CID) ON DELETE CASCADE
 );
 
 CREATE TABLE Vehicle_has1(
@@ -147,10 +147,10 @@ CREATE TABLE Weapon_equip1(
 CREATE TABLE Weapon_equip2(
     WID NUMBER,
     WeaponYear NUMBER,
-    SoID NUMBER,
+    CID NUMBER,
     Condition VARCHAR2(50),
     Primary Key(WID),
-	Foreign Key (SoID) References Soldier_enrolls (SoID) ON DELETE SET NULL
+	Foreign Key (CID) References Soldier_enrolls (CID) ON DELETE SET NULL
 );
 
 CREATE TABLE Weapon_equip3 (
@@ -367,32 +367,11 @@ SELECT MIN(AvgAge) AS LowestAvgAge FROM (SELECT MUID, AVG(Age) AS AvgAge FROM Co
 
 -- todo
 -- divide
-MUNIT that have been to every location
+combatants that have been to every location
 
-SELECT m.MUID FROM MilitaryUnit m WHERE NOT EXISTS ((SELECT a.AreaID from Area a) MINUS (select t.AreaID from Mission_takePlace_assign3 t where t.MUID = m.MUID));
+SELECT Count(*) 
+FROM Combatant
+WHERE 
 
-SELECT m.MUID
-FROM MilitaryUnit as m
-WHERE NOT EXISTS
-    (
-        (SELECT a.AreaID 
-        from Area as a) 
-    EXCEPT
-        (select t.AreaID
-        from Mission_takePlace_assign3 as t
-        where t.MUID = m.MUID));
 
-SELECT s.SName
-FROM student s
-WHERE NOT EXISTS
-    ((SELECT c.cid from course c) 
-    EXCEPT
-    (select E.cid
-    from Enrolled E
-    where E.sid = S.sid));
-
-SELECT * FROM Area;
-SELECT * FROM Area a WHERE NOT EXISTS ((SELECT a.AreaID from Area a));
-SELECT * FROM Area a WHERE NOT EXISTS ((SELECT a.AreaID from Area a) MINUS (SELECT a.AreaID from Area a));
-select * from AREA as a;
 */
