@@ -30,45 +30,31 @@
             <input type="hidden" id="resetTablesRequest" name="resetTablesRequest">
             <p><input type="submit" value="Reset" name="reset"></p>
         </form>
-        
-        <!-- </hr> is a line -->
-        <hr />
-
-        <h2>Insert Multiple Values into DemoTable </h2>
-        <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
-            <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
-            Number: <input type="text" name="insNo0"> <br /><br />
-            Name: <input type="text" name="insName0"> <br /><br /><br />
-            Number: <input type="text" name="insNo1"> <br /><br />
-            Name: <input type="text" name="insName1"> <br /><br /><br />
-            Number: <input type="text" name="insNo2"> <br /><br />
-            Name: <input type="text" name="insName2"> <br /><br /><br />
-            Number: <input type="text" name="insNo3"> <br /><br />
-            Name: <input type="text" name="insName3"> <br /><br /><br />
-           
-
-            <input type="submit" value="Insert" name="insertSubmit"></p>
-        </form>
-
 
         <hr />
         <!--Starts here-->
-        <h2>NEW THING: Adding single value</h2>
+        <h2>NEW THING: Adding single value to Combatant table</h2>
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestInsert" name="requestInsert">
-            Number: <input type="text" name="val1"> <br /><br />
-            Name: <input type="text" name="val2"> <br /><br />
+            CID: <input type="text" name="val0"> <br /><br />
+            Combatant_name: <input type="text" name="val1"> <br /><br />
+            HealthStatus: <input type="text" name="val2"> <br /><br />
+            Hometown: <input type="text" name="val3"> <br /><br />
+            Height: <input type="text" name="val4"> <br /><br />
+            Combatant_weight: <input type="text" name="val5"> <br /><br />
+            Age: <input type="text" name="val6"> <br /><br />
+            Service_year: <input type="text" name="val7"> <br /><br />
+            MUID: <input type="text" name="val8"> <br /><br />
 
             <input type="submit" value="Insert Button" name="clickInsert"></p>
         </form>
 
         <hr />
 
-        <h2>NEW THING: Delete a value</h2>
+        <h2>NEW THING: Delete a value from Combatant table</h2>
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestDelete" name="requestDelete">
-            Number: <input type="text" name="delField1"> <br /><br />
-            Name: <input type="text" name="delField2"> <br /><br />
+            CID: <input type="text" name="deval0"> <br /><br />
 
             <input type="submit" value="clickDelete" name="clickDelete"></p>
         </form>
@@ -81,7 +67,7 @@
 
         <form method="POST" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestUpdate" name="requestUpdate">
-            Old Name: <input type="text" name="oldName"> <br /><br />
+            Old CID: <input type="text" name="oldName"> <br /><br />
             New Name: <input type="text" name="newName"> <br /><br />
 
             <input type="submit" value="Update" name="clickUpdate"></p>
@@ -93,8 +79,7 @@
         <h2>NEW THING: Selection</h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestSelection" name="requestSelection">
-            Number: <input type="text" name="ss1"> <br /><br />
-            Name: <input type="text" name="ss2"> <br /><br />
+            Capacity > <input type="text" name="sl1"> <br /><br />
 
             <input type="submit" value="clickSelection" name="clickSelection"></p>
         </form>
@@ -103,8 +88,15 @@
         <h2>NEW THING: Projection </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestProjection" name="requestProjection">
-            arg1: <input type="text" name="pp1"> <br /><br />
-            arg2: <input type="text" name="pp2"> <br /><br />
+            CID: <input type="checkbox" name="chval0"> <br /><br />
+            Combatant_name: <input type="checkbox" name="chval1"> <br /><br />
+            HealthStatus: <input type="checkbox" name="chval2"> <br /><br />
+            Hometown: <input type="checkbox" name="chval3"> <br /><br />
+            Height: <input type="checkbox" name="chval4"> <br /><br />
+            Combatant_weight: <input type="checkbox" name="chval5"> <br /><br />
+            Age: <input type="checkbox" name="chval6"> <br /><br />
+            Service_year: <input type="checkbox" name="chval7"> <br /><br />
+            MUID: <input type="checkbox" name="chval8"> <br /><br />
 
             <input type="submit" value="clickProjection" name="clickProjection"></p>
         </form>
@@ -117,8 +109,7 @@
         <h2>NEW THING: Join Query</h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestJoin" name="requestJoin">
-            Number: <input type="text" name="ss1"> <br /><br />
-            Name: <input type="text" name="ss2"> <br /><br />
+            Find combatant name, make and vehicle type<br /><br />
 
             <input type="submit" value="clickJoin" name="clickJoin"></p>
         </form>
@@ -127,8 +118,7 @@
         <h2>NEW THING: Aggregation query </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestAgg" name="requestAgg">
-            Number: <input type="text" name="ss1"> <br /><br />
-            Name: <input type="text" name="ss2"> <br /><br />
+            How many combatants are older than 30? <br /><br />
 
             <input type="submit" value="clickAgg" name="clickAgg"></p>
         </form>
@@ -136,8 +126,7 @@
         <h2>NEW THING: GroupBy </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestGroupBy" name="requestGroupBy">
-            Number: <input type="text" name="ss1"> <br /><br />
-            Name: <input type="text" name="ss2"> <br /><br />
+            Show lowest average age of military unit.<br /><br />
 
             <input type="submit" value="clickGroupBy" name="clickGroupBy"></p>
         </form>
@@ -145,8 +134,7 @@
         <h2>NEW THING: Division </h2>
         <form method="GET" action="oracle-test.php"> <!--refresh page when submitted-->
             <input type="hidden" id="requestDivision" name="requestDivision">
-            Number: <input type="text" name="ss1"> <br /><br />
-            Name: <input type="text" name="ss2"> <br /><br />
+            Show division query.<br /><br />
 
             <input type="submit" value="clickDivision" name="clickDivision"></p>
         </form>
@@ -234,13 +222,53 @@
             }
         }
 
-        function printResult($result) { //prints results from a select statement
-            echo "<br>Retrieved data from table demoTable:<br>";
+        function printResultCombatant($result) { //prints results from a select statement
+            echo "<br>Retrieved data from table Combatant:<br>";
             echo "<table>";
-            echo "<tr><th>ID</th><th>Name</th></tr>";
+            echo "<tr><th>CID</th><th>Combatant_name</th><th>HealthStatus</th><th>Hometown</th><th>Height</th><th>Combatant_weight</th><th>Age</th><th>Service_year</th><th>MUID</th></tr>";
 
             while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-                echo "<tr><td>" . $row["ID"] . "</td><td>" . $row["NAME"] . "</td></tr>"; //or just use "echo $row[0]" 
+                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] 
+                . "</td><td>" . $row[5] . "</td><td>" . $row[6] . "</td><td>" . $row[7] . "</td><td>" . $row[8] . "</td><td>"; //or just use "echo $row[0]" 
+                // echo $row[0];
+            }
+
+            echo "</table>";
+        }
+
+        function printResultMilitaryUnit($result) { //prints results from a select statement
+            echo "<br>Retrieved data from table MilitaryUnit:<br>";
+            echo "<table>";
+            echo "<tr><th>MUID</th><th>Capacity</th><th>CID</th><th>Death</th></tr>";
+
+            while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>"; //or just use "echo $row[0]" 
+                // echo $row[0];
+            }
+
+            echo "</table>";
+        }
+
+        function printResultJoin($result) { //prints results from a select statement
+            echo "<br>Retrieved data from table MilitaryUnit:<br>";
+            echo "<table>";
+            echo "<tr><th>Combatant_name</th><th>Make</th><th>VehicleType</th></tr>";
+
+            while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>"; //or just use "echo $row[0]" 
+                // echo $row[0];
+            }
+
+            echo "</table>";
+        }
+
+        function printResultDivision($result) { //prints results from a select statement
+            echo "<br>Retrieved data from table MilitaryUnit:<br>";
+            echo "<table>";
+            echo "<tr><th>Combatant_name</th><th>Make</th><th>VehicleType</th></tr>";
+
+            while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>"; //or just use "echo $row[0]" 
                 // echo $row[0];
             }
 
@@ -252,8 +280,8 @@
 
             // Your username is ora_(CWL_ID) and the password is a(student number). For example, 
 			// ora_platypus is the username and a12345678 is the password.
-            $db_conn = OCILogon("ora_liu650", "a46981452", "dbhost.students.cs.ubc.ca:1522/stu");
-
+            // $db_conn = OCILogon("ora_liu650", "a46981452", "dbhost.students.cs.ubc.ca:1522/stu");
+            $db_conn = OCILogon("ora_mhlchina", "a28325181", "dbhost.students.cs.ubc.ca:1522/stu");
             if ($db_conn) {
                 debugAlertMessage("Database is Connected");
                 return true;
@@ -272,59 +300,26 @@
             OCILogoff($db_conn);
         }
 
-        function handleUpdateRequest() {
-            global $db_conn;
-
-            $old_name = $_POST['oldName'];
-            $new_name = $_POST['newName'];
-
-            // you need the wrap the old name and new name values with single quotations
-            executePlainSQL("UPDATE demoTable SET name='" . $new_name . "' WHERE name='" . $old_name . "'");
-            OCICommit($db_conn);
-        }
-
         function handleResetRequest() {
             global $db_conn;
             // Drop old table
             executePlainSQL("DROP TABLE demoTable");
-
             // Create new table
             echo "<br> creating new table <br>";
             executePlainSQL("CREATE TABLE demoTable (id int PRIMARY KEY, name char(30))");
             OCICommit($db_conn);
         }
 
-        function handleInsertRequest() {
-            global $db_conn;
-
-            //Getting the values from user and insert data into the table
-           
-
-            // array(":bind1" => $_POST['insNo{$i}'], ":bind2" => $_POST['insName{$i}']);
-            $alltuples =[];
-            echo $_POST["insNo3"] == null;
-            
-            for ($i = 0; $i < 4; $i++){
-                if (($_POST["insNo{$i}"] != null) && ($_POST["insName{$i}"] != null)){
-                    array_push($alltuples,[":bind1" => $_POST["insNo{$i}"], ":bind2" => $_POST["insName{$i}"]]);
-                }
-            }
-            echo '<pre>';
-            print_r($alltuples);
-            echo '</pre>';
-            executeBoundSQL("insert into demoTable values (:bind1, :bind2)", $alltuples);
-            OCICommit($db_conn);
-        }
-
         function handleCountRequest() {
             global $db_conn;
 
-            $result = executePlainSQL("SELECT Count(*) FROM demoTable");
+            // $result = executePlainSQL("SELECT Count(*) FROM Combatant");
+            $result = executePlainSQL("SELECT Count(*) FROM Combatant");
 
             if (($row = oci_fetch_row($result)) != false) {
-                // echo "<br> The number of tuples in demoTable: " . $row[0] . "<br>";
-                $result = executePlainSQL("select * from demoTable");
-		        printResult($result);
+                echo "<br> The number of tuples in Combatant: " . $row[0] . "<br>";
+                $result = executePlainSQL("SELECT * FROM Combatant");
+		        printResultCombatant($result);
             }
         }
 
@@ -332,74 +327,94 @@
         function handleJL() {
             global $db_conn;
         
-            executePlainSQL("INSERT INTO demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            executePlainSQL("INSERT INTO Combatant values ({$_POST['val0']}, '{$_POST['val1']}', '{$_POST['val2']}', '{$_POST['val3']}', 
+                                {$_POST['val4']}, {$_POST['val5']}, {$_POST['val6']}, {$_POST['val7']}, {$_POST['val8']})");
             OCICommit($db_conn);
         }
 
         function handleDelete() {
             global $db_conn;
             
-            
-            executePlainSQL("DELETE FROM demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
+            executePlainSQL("DELETE FROM Combatant WHERE CID = {$_POST['deval0']}");
             OCICommit($db_conn);
         } 
         function handleUpdate() {
             global $db_conn;
 
-            // $old_name = $_POST['oldName'];
-            // $new_name = $_POST['newName'];
-
-            // // you need the wrap the old name and new name values with single quotations
-            // executePlainSQL("UPDATE demoTable SET name='" . $new_name . "' WHERE name='" . $old_name . "'");
+            executePlainSQL("UPDATE Combatant SET Combatant_name = '{$_POST['newName']}' WHERE CID = {$_POST['oldName']}");
             OCICommit($db_conn);
         }
 
         // query handlers
         function handleProjection() {
-            global $db_conn;
+            $projectionList = array();
+            $query = "SELECT ";
+            if(isset($_GET['chval0'])){
+                array_push($projectionList, 'CID, ');
+            }
+            if(isset($_GET['chval1'])){
+                array_push($projectionList, 'Combatant_name, ');
+            }
+            if(isset($_GET['chval2'])){
+                array_push($projectionList, 'HealthStatus, ');
+            }
+            if(isset($_GET['chval3'])){
+                array_push($projectionList, 'Hometown, ');
+            }
+            if(isset($_GET['chval4'])){
+                array_push($projectionList, 'Height, ');
+            }
+            if(isset($_GET['chval5'])){
+                array_push($projectionList, 'Combatant_weight, ');
+            }
+            if(isset($_GET['chval6'])){
+                array_push($projectionList, 'Age, ');
+            }
+            if(isset($_GET['chval7'])){
+                array_push($projectionList, 'Service_year, ');
+            }
+            if(isset($_GET['chval8'])){
+                array_push($projectionList, 'MUID, ');
+            }
             
-            // executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
-            
-            // echo 'PROJECTION';
-            $result = executePlainSQL("SELECT {$_GET['pp1']} FROM demoTable");
-            printResult($result);
-            OCICommit($db_conn);
+            foreach($projectionList as $e){
+                $query = $query . $e;
+            }
+            $query = substr($query, 0, -2);
+            $query = $query . " FROM Combatant";
+            if(count($projectionList) == 0){
+                $query = "SELECT * FROM Combatant";
+            }
+            // echo $query;
+            printResultCombatant(executePlainSQL($query));
         } 
 
         function handleSelection() {
-            global $db_conn;
-            
-            
-            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
-            OCICommit($db_conn);
+            $result = executePlainSQL("SELECT * FROM MilitaryUnit WHERE Capacity > {$_GET['sl1']}");
+            printResultMilitaryUnit($result);
         } 
+
         function handleJoin() {
-            global $db_conn;
-            
-            
-            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
-            OCICommit($db_conn);
+            $result = executePlainSQL("SELECT Combatant_name,Make,VehicleType FROM Combatant, Vehicle_has2, Vehicle_has3 WHERE Combatant.MUID = Vehicle_has2.MUID and Vehicle_has2.PID = Vehicle_has3.PID");
+            printResultJoin($result);
         } 
         function handleAgg() {
-            global $db_conn;
-            
-            
-            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
-            OCICommit($db_conn);
+            $result = executePlainSQL("SELECT Count(*) FROM Combatant WHERE Age > 30");
+
+            if (($row = oci_fetch_row($result)) != false) {
+                echo "<br> There are ". $row[0] ." people/person older than 30 in Combatant. <br>";
+            }
         } 
         function handleGroupBy() {
-            global $db_conn;
-            
-            
-            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
-            OCICommit($db_conn);
+            $result = executePlainSQL("SELECT MIN(AvgAge) AS LowestAvgAge FROM (SELECT MUID, AVG(Age) AS AvgAge FROM Combatant GROUP BY MUID)");
+
+            if (($row = oci_fetch_row($result)) != false) {
+                echo "<br> Lowest average age of military unit is ". $row[0] .". <br>";
+            }
         } 
         function handleDivision() {
-            global $db_conn;
-            
-            
-            executePlainSQL("delete from demoTable values ({$_POST['val1']}, '{$_POST['val2']}')");
-            OCICommit($db_conn);
+            $result = executePlainSQL("");
+            printResultDivision($result);
         } 
 
         // HANDLE ALL POST ROUTES
@@ -408,14 +423,12 @@
             if (connectToDB()) {
                 if (array_key_exists('resetTablesRequest', $_POST)) {
                     handleResetRequest();
-                } else if (array_key_exists('insertQueryRequest', $_POST)) {
-                    handleUpdateRequest();
                 } else if (array_key_exists('clickUpdate', $_POST)) {
-                    handleInsertRequest();
+                    handleUpdate();
                 } else if (array_key_exists('clickInsert', $_POST)) {
                     handleJL();
                 } else if (array_key_exists('clickDelete', $_POST)) {
-                    handleDeleteRequest();
+                    handleDelete();
                 }
 
                 disconnectFromDB();
@@ -446,7 +459,7 @@
             }
         }
 
-        if (isset($_POST['reset']) || isset($_POST['insertSubmit'])|| 
+        if (isset($_POST['reset']) ||
             isset($_POST['requestUpdate']) || isset($_POST['requestInsert']) || isset($_POST['requestDelete'])) {
             handlePOSTRequest();
         } else if (isset($_GET['countTupleRequest']) || isset($_GET['requestSelection']) 

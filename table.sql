@@ -28,12 +28,15 @@ CREATE TABLE General(
 	General_name varchar2(50),
 	General_rank varchar2(50)
 );
+-- grant ALL PRIVILEGES on General to public;
+
 CREATE TABLE Area(
     AreaName VARCHAR2(50), 
     AreaID NUMBER Primary Key, 
     Terrain VARCHAR2(50), 
     Country VARCHAR2(50)
 );
+
 
 CREATE TABLE MilitaryUnit(
 	MUID NUMBER Primary Key,
@@ -53,6 +56,7 @@ CREATE TABLE Mission_takePlace_assign2(
     EndDate VARCHAR2(50) Primary Key, 
     Mission_status VARCHAR2(50)
 );
+
 
 CREATE TABLE Mission_takePlace_assign3(
     MissionID VARCHAR2(50), 
@@ -74,6 +78,7 @@ CREATE TABLE MissionBudgetReport_record(
     Primary Key(MUID, FileNumber), 
 	Foreign Key (MUID) References MilitaryUnit (MUID) ON DELETE CASCADE
 );
+
 CREATE TABLE MUBudgetReport_record(
 	Budget_year  NUMBER,
     Amount  NUMBER,
@@ -81,6 +86,7 @@ CREATE TABLE MUBudgetReport_record(
     Primary Key(MUID, Budget_year), 
 	Foreign Key (MUID) References MilitaryUnit (MUID) ON DELETE CASCADE
 );
+
 
 CREATE TABLE Combatant(
     CID NUMBER Primary Key,
@@ -94,6 +100,7 @@ CREATE TABLE Combatant(
     MUID NUMBER,
     Foreign Key (MUID) References MilitaryUnit (MUID) ON DELETE CASCADE
 );
+
 
 CREATE TABLE Commander(
 	CMID NUMBER primary key,
@@ -190,6 +197,11 @@ insert into Mission_takePlace_assign3 values(2,5,4,2,'2017-11-20');
 insert into Mission_takePlace_assign3 values(3,3,3,4,'2018-03-18');
 insert into Mission_takePlace_assign3 values(4,4,5,3,'2020-03-09');
 insert into Mission_takePlace_assign3 values(5,2,2,1,'2020-01-26');
+insert into Mission_takePlace_assign3 values(5,1,2,1,'2020-01-26');
+insert into Mission_takePlace_assign3 values(5,2,1,1,'2020-01-26');
+insert into Mission_takePlace_assign3 values(5,3,2,1,'2020-01-26');
+insert into Mission_takePlace_assign3 values(5,4,2,1,'2020-01-26');
+insert into Mission_takePlace_assign3 values(5,5,2,1,'2020-01-26');
 
 insert into MissionBudgetReport_record values(1,20000,1000);
 insert into MissionBudgetReport_record values(2,50000,1001);
@@ -327,3 +339,39 @@ insert into Weapon_equip3 values(14,'Empresa Nacional Santa Bárbara','Type 69 R
 insert into Weapon_equip3 values(15,'ST Kinetics','PF-89');
 insert into Weapon_equip3 values(16,'Armament Research and Development Establishment','RPG-2');
 insert into Weapon_equip3 values(17,'Armament Research and Development Establishment','RPG-16');  
+
+/*
+-- Select: get units where cap > sl1;
+SELECT * FROM MilitaryUnit WHERE Capacity > {$_GET['sl1']};
+SELECT * FROM MilitaryUnit WHERE Capacity > 1;
+
+-- Project: project Combatant_name, CID, MUID
+SELECT Combatant_name, CID, MUID FROM Combatant;
+
+
+-- Join: Join Combatant Vehicle_has2 Vehicle_has3
+  
+SELECT Combatant_name,Make,VehicleType
+FROM Combatant, Vehicle_has2, Vehicle_has3
+WHERE Combatant.MUID = Vehicle_has2.MUID and Vehicle_has2.PID = Vehicle_has3.PID;
+
+
+-- Agg: total num of Combatant older than 30.
+SELECT Count(*) FROM Combatant WHERE Age >= 30;
+
+
+-- groupby:
+-- find the muid with the lowest avg age (youngest unit)
+SELECT MIN(AvgAge) AS LowestAvgAge FROM (SELECT MUID, AVG(Age) AS AvgAge FROM Combatant GROUP BY MUID);
+
+
+-- todo
+-- divide
+combatants that have been to every location
+
+SELECT Count(*) 
+FROM Combatant
+WHERE 
+
+
+*/
